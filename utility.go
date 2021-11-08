@@ -93,7 +93,7 @@ func (list *ArrayList) Sort() {
 	}
 }
 
-func Merge(A []int, B []int) []int {
+func merge(A []int, B []int) []int {
 	var result = make([]int, len(A)+len(B))
 	i, j := 0, 0
 	index := 0
@@ -135,7 +135,7 @@ func sort(nums []int) {
 	B := nums[mid:]
 	sort(A)
 	sort(B)
-	copy(nums, Merge(A, B))
+	copy(nums, merge(A, B))
 }
 
 type Node struct {
@@ -318,7 +318,7 @@ func (m *Map) KeySet() Set {
 }
 
 func (m *Map) Values() List {
-	var values *ArrayList
+	values := new(ArrayList)
 	for _, value := range *m {
 		values.Add(value)
 	}
